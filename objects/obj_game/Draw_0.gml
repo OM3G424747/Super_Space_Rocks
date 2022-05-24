@@ -8,6 +8,7 @@ switch(room){
 		
 		draw_set_halign(fa_center);
 	
+		// set's colour for Title 
 		var c = c_lime;
 		
 		draw_text_transformed_color(

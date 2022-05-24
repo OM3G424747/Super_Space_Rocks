@@ -3,6 +3,9 @@ score += 100;
 
 with(other){
 	instance_destroy();
+	var boom_rock = choose(snd_boom1, snd_boom2, snd_boom3);
+	
+	audio_play_sound(boom_rock, 2, false);
 	
 	if(sprite_index == spr_astroid_lrg){
 		

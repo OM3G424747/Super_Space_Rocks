@@ -54,7 +54,9 @@ if(keyboard_check(ord("W")) or keyboard_check(vk_space)){
 // checks if left mouse button is clicked
 if mouse_check_button_pressed(mb_left)
 {
-    var inst = instance_create_layer(x,y, "Instances", obj_bullet);
+
+	audio_play_sound(snd_zap, 8, false);
+	var inst = instance_create_layer(x,y, "Instances", obj_bullet);
 	
 	inst.direction = image_angle;
 	inst.image_angle = image_angle;

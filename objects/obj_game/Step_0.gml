@@ -13,7 +13,7 @@ if(keyboard_check_pressed(vk_enter)){
 		case rm_win:
 		case rm_gameover:
 			// resets mouse cursor
-			window_set_cursor(cr_default);
+			
 			game_restart();
 			break;
 		
@@ -24,9 +24,11 @@ if(keyboard_check_pressed(vk_enter)){
 if (room == rm_game){
 	if (score >= 30000){
 		room_goto(rm_win);
+		window_set_cursor(cr_arrow);
 	}
 
 	if (lives <= 0){
 		room_goto(rm_gameover);
+		window_set_cursor(cr_arrow);
 	}
 }
