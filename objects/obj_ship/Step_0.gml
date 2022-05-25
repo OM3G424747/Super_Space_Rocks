@@ -27,6 +27,8 @@ if(keyboard_check(ord("W")) or keyboard_check(vk_space)){
 	// creates hub instance
 	var hub = instance_create_layer(hub_x, hub_y, "Instances", obj_hub);
 	
+
+	
 	// sets left and right thruster based on the location of the hub
 	var thrust_left_x = hub.x + lengthdir_x(2,image_angle-270);
 	var thrust_left_y = hub.y + lengthdir_y(2,image_angle-270);
@@ -48,6 +50,27 @@ if(keyboard_check(ord("W")) or keyboard_check(vk_space)){
 	
 	thrust_left.speed += obj_ship.speed;
 	thrust_right.speed += obj_ship.speed;
+	
+	// handles thuster sparks
+	var spark_spray = choose(irandom_range(355, 359), irandom_range(0,5));
+	var select_jet = choose(0,1);
+	
+	if (select_jet == 0){
+		
+		// selects left jet for spark
+		var spark = instance_create_layer(thrust_left.x, thrust_left.y, "Instances", obj_spark);
+		
+		spark.direction = thrust_left.direction - spark_spray;
+	
+	} else {
+		
+		// selects right jet for spark
+		var spark = instance_create_layer(thrust_right.x, thrust_right.y, "Instances", obj_spark);
+		
+		spark.direction = thrust_right.direction - spark_spray;
+	
+	}
+	
 
 }
 

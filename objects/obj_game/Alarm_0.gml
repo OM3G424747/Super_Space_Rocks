@@ -18,4 +18,4 @@ if(choose(0,1) == 0) {
 
 instance_create_layer(xx, yy, "Instances", obj_astroid);
 
-alarm[0] = 3.6*room_speed;
+alarm[0] = 2.5*room_speed;
