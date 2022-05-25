@@ -13,6 +13,7 @@
     {"id":{"name":"snd_thruster1","path":"sounds/snd_thruster1/snd_thruster1.yy",},"order":4,},
     {"id":{"name":"spr_bullet","path":"sprites/spr_bullet/spr_bullet.yy",},"order":4,},
     {"id":{"name":"obj_aim","path":"objects/obj_aim/obj_aim.yy",},"order":9,},
+    {"id":{"name":"obj_astroid_shade","path":"objects/obj_astroid_shade/obj_astroid_shade.yy",},"order":10,},
     {"id":{"name":"spr_astroid_lrg_side","path":"sprites/spr_astroid_lrg_side/spr_astroid_lrg_side.yy",},"order":3,},
     {"id":{"name":"spr_thrust","path":"sprites/spr_thrust/spr_thrust.yy",},"order":11,},
     {"id":{"name":"snd_thruster3","path":"sounds/snd_thruster3/snd_thruster3.yy",},"order":6,},

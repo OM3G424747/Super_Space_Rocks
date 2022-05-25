@@ -1,8 +1,10 @@
+window_get_fullscreen();
+
 
 if (room == rm_game){
 	
 	
-	repeat(6){
+	repeat(7){
 		var xx = choose(
 			// set's 1st 3rd of the room "left column"
 			irandom_range(0, room_width*0.3),

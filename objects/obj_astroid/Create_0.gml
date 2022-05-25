@@ -23,3 +23,5 @@ rotation_speed = prive_var;
 // selects a radom rotation direction 
 rotate_direction = choose(rotation_speed, -rotation_speed);
 
+// spawns shade
+alarm[0] = room_speed;
