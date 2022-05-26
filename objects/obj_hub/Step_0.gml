@@ -1,5 +1,4 @@
-// set's rotation speed and movement speed 
-image_alpha -= 0.5;
+image_alpha -= 1;
 
 
 if (image_alpha <= 0){
@@ -7,3 +6,4 @@ if (image_alpha <= 0){
 	instance_destroy();
 
 }
+

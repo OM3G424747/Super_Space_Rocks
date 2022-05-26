@@ -28,7 +28,6 @@ if(keyboard_check(ord("W")) or keyboard_check(vk_space)){
 	var hub = instance_create_layer(hub_x, hub_y, "Instances", obj_hub);
 	
 
-	
 	// sets left and right thruster based on the location of the hub
 	var thrust_left_x = hub.x + lengthdir_x(2,image_angle-270);
 	var thrust_left_y = hub.y + lengthdir_y(2,image_angle-270);

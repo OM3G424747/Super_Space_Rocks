@@ -1,3 +1,6 @@
+
+
+
 switch(room){
 	case rm_game:
 		draw_text(20,20, "SCORE: "+string(score));
@@ -71,9 +74,14 @@ Left Mouse Button: Shoot
 		draw_text(
 			room_width/2, 250, 
 			"FINAL SCORE " + string(score));
-		
+			
+
 		draw_text(
 			room_width/2, 300, 
+			"HINT: " + select_hint );
+		
+		draw_text(
+			room_width/2, 400, 
 			"PRESS ENTER TO RESTART");
 			
 		

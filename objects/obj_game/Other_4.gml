@@ -29,4 +29,11 @@ if (room == rm_game){
 	alarm[0] = 60;
 
 
+} else if (room == rm_gameover){
+	
+	hint1 = "Your thrusters can push rocks away";
+	hint2 = "Try taking care of the smaller rocks first";
+	hint3 = "Try shooting faster to clear clusters of rocks";
+	select_hint = choose(hint1, hint2, hint3);
+
 }
