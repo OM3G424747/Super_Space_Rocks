@@ -26,7 +26,8 @@ switch(room){
 
 W or Space Bar: Thrusters
 Mouse: Aim / Steer
-Left Mouse Button: Shoot
+Left Mouse Button Click: Shoot
+Left Mouse Button Hold: Charged Shot
 
 >> PRESS ENTER TO START <<
 "

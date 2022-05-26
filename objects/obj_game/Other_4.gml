@@ -1,10 +1,8 @@
-window_get_fullscreen();
-
 
 if (room == rm_game){
 	
 	
-	repeat(7){
+	repeat(8){
 		var xx = choose(
 			// set's 1st 3rd of the room "left column"
 			irandom_range(0, room_width*0.3),
@@ -34,6 +32,7 @@ if (room == rm_game){
 	hint1 = "Your thrusters can push rocks away";
 	hint2 = "Try taking care of the smaller rocks first";
 	hint3 = "Try shooting faster to clear clusters of rocks";
-	select_hint = choose(hint1, hint2, hint3);
+	hint4 = "Charged shots are more effective against big rocks";
+	select_hint = choose(hint1, hint2, hint3, hint4);
 
 }

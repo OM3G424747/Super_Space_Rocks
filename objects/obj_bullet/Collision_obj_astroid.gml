@@ -1,5 +1,13 @@
-instance_destroy();
+charge -= 1;
 score += 100;
+
+// if max charge is depleted, the bullet is destroyed
+if (charge <= 0){
+	
+	instance_destroy();
+
+}
+
 
 with(other){
 	instance_destroy();

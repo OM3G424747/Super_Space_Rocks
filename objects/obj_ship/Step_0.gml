@@ -1,7 +1,12 @@
 
 
+
+
 // used to rotate ship to match mouse
 image_angle = point_direction(x,y,mouse_x, mouse_y);
+
+// second counter for mouse press
+var seconds = 1;
 
 
 // used to turn the ship left 
@@ -19,6 +24,8 @@ image_angle = point_direction(x,y,mouse_x, mouse_y);
 
 // used to move the ship forward 
 if(keyboard_check(ord("W")) or keyboard_check(vk_space)){
+	
+	
 	
 	// sets hub for thruster objects to rotate arround at the rear of the ship 7px away
 	var hub_x = x + lengthdir_x(6,image_angle-180);
@@ -73,15 +80,136 @@ if(keyboard_check(ord("W")) or keyboard_check(vk_space)){
 
 }
 
-// checks if left mouse button is clicked
-if mouse_check_button_pressed(mb_left)
-{
 
-	audio_play_sound(snd_zap, 8, false);
-	var inst = instance_create_layer(x,y, "Instances", obj_bullet);
+// set's frequency for charge sound
+var number_of_frames = 15;
+var freq = room_speed / number_of_frames;
+
+if mouse_check_button(mb_left){
+
+	// increments per frame
+	counter += 1
 	
-	inst.direction = image_angle;
-	inst.image_angle = image_angle;
+	// sets orb hub at front of ship
+	var orb_hub_x = x + lengthdir_x(17,image_angle);
+	var orb_hub_y = y + lengthdir_y(17,image_angle);
+	
+	// creates hub instance
+	var orb_hub = instance_create_layer(orb_hub_x, orb_hub_y, "Instances", obj_hub);
+	
+	var deviation = irandom_range(0,40);
+	
+	// set's deviation to left or right
+	var select_deviant = choose(deviation, -deviation);
+	
+	// sets spawn point for orbs at front of ship during carge
+	var orb_x = orb_hub.x + lengthdir_x(75,image_angle + select_deviant);
+	var orb_y = orb_hub.y + lengthdir_y(75,image_angle + select_deviant);
+	
+	if (counter >= room_speed * seconds) {
+		
+		
+		
+		// plays sound ever set frame frame
+		if(counter %freq = 0){
+			audio_play_sound(snd_charge2, 8, false);
+		}
+		
+		var orb_glow = instance_create_layer(orb_hub.x, orb_hub.y, "Instances", obj_ship_glow);
+		
+		orb_glow.image_xscale += 1;
+		orb_glow.image_yscale += 1;
+		
+		var orb = instance_create_layer(orb_x, orb_y, "Instances", obj_ship_charge);
+		
+		orb.direction = point_direction(orb_x, orb_y, orb_hub.x, orb_hub.y);
+		
+	
+	} else if (counter >= room_speed * (seconds*0.2)) {
+		
+	
+		// plays sound ever set frame frame
+		if(counter %freq = 0){
+			audio_play_sound(snd_charge1, 8, false);
+		}
+		
+		
+		var orb_glow = instance_create_layer(orb_hub.x, orb_hub.y, "Instances", obj_ship_glow);
+		
+		var orb = instance_create_layer(orb_x, orb_y, "Instances", obj_ship_charge);
+		
+		orb.direction = point_direction(orb_x, orb_y, orb_hub.x, orb_hub.y);
+		
+		orb.image_xscale -= 0.5;
+		orb.image_yscale -= 0.5;	
+	
+	} 
+	
+	
+
+}
+
+
+// checks if left mouse button is clicked
+else if mouse_check_button_released(mb_left){
+	
+
+	// full charge
+	if counter >= room_speed * seconds {
+	
+	
+		audio_play_sound(snd_zap, 5, false);
+		audio_play_sound(snd_zap, 8, false);
+		audio_play_sound(snd_zap2, 8, false);
+		audio_play_sound(snd_zap2, 8, false);
+		var inst = instance_create_layer(x,y, "Instances", obj_bullet);
+	
+		inst.charge = 8;
+	
+		inst.image_index = spr_bullet_lrg
+		
+		inst.image_xscale +=2;
+		inst.image_yscale +=2;
+	
+		inst.direction = image_angle;
+		inst.image_angle = image_angle;
+   
+	   counter = 0;
+
+	// half charge
+	} else if (counter >= room_speed * (seconds*0.2)){
+	
+		audio_play_sound(snd_zap, 8, false);
+		audio_play_sound(snd_zap, 8, false);
+		var inst = instance_create_layer(x,y, "Instances", obj_bullet);
+		
+		inst.charge = 4;
+	
+		inst.image_index = spr_bullet_lrg
+	
+		inst.image_xscale +=1;
+		inst.image_yscale +=1;
+	
+		inst.direction = image_angle;
+		inst.image_angle = image_angle;
+   
+		counter = 0;
+
+
+	} else if (counter < room_speed * (seconds*0.5)){
+
+		audio_play_sound(snd_zap, 8, false);
+		var inst = instance_create_layer(x,y, "Instances", obj_bullet);
+		
+
+	
+		inst.direction = image_angle;
+		inst.image_angle = image_angle;
+   
+		counter = 0;
+
+	}
+
 	
 }
 
