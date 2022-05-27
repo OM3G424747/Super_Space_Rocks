@@ -5,6 +5,7 @@
     {"id":{"name":"spr_astroid_med_side","path":"sprites/spr_astroid_med_side/spr_astroid_med_side.yy",},"order":9,},
     {"id":{"name":"snd_boom2","path":"sounds/snd_boom2/snd_boom2.yy",},"order":1,},
     {"id":{"name":"obj_hub","path":"objects/obj_hub/obj_hub.yy",},"order":8,},
+    {"id":{"name":"snd_menu","path":"sounds/snd_menu/snd_menu.yy",},"order":11,},
     {"id":{"name":"spr_spark","path":"sprites/spr_spark/spr_spark.yy",},"order":13,},
     {"id":{"name":"obj_dust","path":"objects/obj_dust/obj_dust.yy",},"order":3,},
     {"id":{"name":"spr_astroid_sml_side","path":"sprites/spr_astroid_sml_side/spr_astroid_sml_side.yy",},"order":10,},

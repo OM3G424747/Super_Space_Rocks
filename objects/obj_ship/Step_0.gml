@@ -57,24 +57,27 @@ if(keyboard_check(ord("W")) or keyboard_check(vk_space)){
 	thrust_left.speed += obj_ship.speed;
 	thrust_right.speed += obj_ship.speed;
 	
+	
 	// handles thuster sparks
-	var spark_spray = choose(irandom_range(355, 359), irandom_range(0,5));
-	var select_jet = choose(0,1);
+	repeat(2){
+		var spark_spray = choose(irandom_range(355, 359), irandom_range(0,5));
+		var select_jet = choose(0,1);
 	
-	if (select_jet == 0){
+		if (select_jet == 0){
 		
-		// selects left jet for spark
-		var spark = instance_create_layer(thrust_left.x, thrust_left.y, "Instances", obj_spark);
+			// selects left jet for spark
+			var spark = instance_create_layer(thrust_left.x, thrust_left.y, "Instances", obj_spark);
 		
-		spark.direction = thrust_left.direction - spark_spray;
+			spark.direction = thrust_left.direction - spark_spray;
 	
-	} else {
+		} else {
 		
-		// selects right jet for spark
-		var spark = instance_create_layer(thrust_right.x, thrust_right.y, "Instances", obj_spark);
+			// selects right jet for spark
+			var spark = instance_create_layer(thrust_right.x, thrust_right.y, "Instances", obj_spark);
 		
-		spark.direction = thrust_right.direction - spark_spray;
+			spark.direction = thrust_right.direction - spark_spray;
 	
+		}
 	}
 	
 
@@ -165,6 +168,7 @@ else if mouse_check_button_released(mb_left){
 		var inst = instance_create_layer(x,y, "Instances", obj_bullet);
 	
 		inst.charge = 8;
+		inst.speed += 2;
 	
 		inst.image_index = spr_bullet_lrg
 		
@@ -184,6 +188,7 @@ else if mouse_check_button_released(mb_left){
 		var inst = instance_create_layer(x,y, "Instances", obj_bullet);
 		
 		inst.charge = 4;
+		inst.speed += 1;
 	
 		inst.image_index = spr_bullet_lrg
 	
