@@ -45,6 +45,15 @@ if(keyboard_check(ord("W")) or keyboard_check(vk_space)){
 	var thrust_left = instance_create_layer(thrust_left_x, thrust_left_y, "Instances", obj_thrust);
     var thrust_right = instance_create_layer(thrust_right_x, thrust_right_y, "Instances", obj_thrust);
 	
+	if (prev_thruster_left!= "NA" and prev_thruster_right != "NA"){
+		thrust_left.trail_point_obj = prev_thruster_left;
+		thrust_right.trail_point_obj = prev_thruster_right;
+	
+	}
+	
+	prev_thruster_left = thrust_left;
+	prev_thruster_right = thrust_right;
+	
 	// changes direction and angle of thrustes to match those of the ship
 	thrust_left.direction = image_angle-180;
 	thrust_left.image_angle = image_angle-180;

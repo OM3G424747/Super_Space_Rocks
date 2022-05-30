@@ -14,7 +14,7 @@ sprite_index = choose(
 direction = irandom_range(0, 359);
 image_angle = irandom_range(0, 359);
 
-prive_var = choose(0.50, 1, 1.50, 2, 2.50);
+prive_var = choose(0.50, 1, 1.50);
 
 speed = prive_var;
 
@@ -25,4 +25,6 @@ rotate_direction = choose(rotation_speed, -rotation_speed);
 
 // spawns shade
 alarm[0] = room_speed;
+
+
 

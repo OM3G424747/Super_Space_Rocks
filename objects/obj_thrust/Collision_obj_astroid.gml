@@ -1,7 +1,7 @@
 with(other){
 
 	// sets force for cube size
-	var thrust_force = 0.02;
+	var thrust_force = 0.04;
 	
 	// reduces force based on cube mass / size
 	if(sprite_index == spr_astroid_med){

@@ -23,14 +23,14 @@ switch(room){
 		var c = c_lime;
 		
 		draw_text_transformed_color(
-			room_width/2, 200, "SUPER SPACE ROCKS",
+			room_width/2, 100, "SUPER SPACE ROCKS",
 			3, 3, 0, c, c, c, c, 1
 			
 		);
 		
 		draw_text(
-			room_width/2, 300, 
-			@"Score 40,000 points to win!
+			room_width/2, 200, 
+			@"Score 50,000 points to win!
 
 W or Space Bar: Thrusters
 Mouse: Aim / Steer
@@ -53,13 +53,13 @@ Death: Converts shards to score
 		var c = c_lime;
 		
 		draw_text_transformed_color(
-			room_width/2, 200, "YOU WIN!!!",
+			room_width/2, 100, "YOU WIN!!!",
 			3, 3, 0, c, c, c, c, 1
 			
 		);
 		
 		draw_text(
-			room_width/2, 300, 
+			room_width/2, 200, 
 			"PRESS ENTER TO RESTART"
 		);
 		
@@ -76,22 +76,22 @@ Death: Converts shards to score
 		var c = c_red;
 		
 		draw_text_transformed_color(
-			room_width/2, 150, "GAME OVER",
+			room_width/2, 50, "GAME OVER",
 			3, 3, 0, c, c, c, c, 1
 			
 		);
 		
 		draw_text(
-			room_width/2, 250, 
+			room_width/2, 150, 
 			"FINAL SCORE " + string(score));
 			
 
 		draw_text(
-			room_width/2, 300, 
+			room_width/2, 200, 
 			"HINT: " + select_hint );
 		
 		draw_text(
-			room_width/2, 400, 
+			room_width/2, 300, 
 			"PRESS ENTER TO RESTART");
 			
 		

@@ -14,4 +14,4 @@ with(shade_instance){
 	 rotate_direction = other.rotate_direction;
 }
 
-alarm[0] = room_speed;
+alarm[0] = room_speed/4;

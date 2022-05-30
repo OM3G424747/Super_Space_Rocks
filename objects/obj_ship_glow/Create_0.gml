@@ -1,4 +1,4 @@
-var start_alpha = choose(0.4)
+var start_alpha = choose(0.5)
 
 image_alpha = start_alpha;
 
