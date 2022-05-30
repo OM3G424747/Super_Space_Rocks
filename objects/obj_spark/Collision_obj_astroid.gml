@@ -2,6 +2,7 @@
 repeat(5){
 	
 	var hit_spark = instance_create_layer(x, y, "Instances", obj_spark_red);
+		
 	
 	hit_spark.image_xscale = image_xscale;
 	hit_spark.image_yscale = image_yscale;

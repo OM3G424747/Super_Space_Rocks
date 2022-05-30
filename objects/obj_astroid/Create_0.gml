@@ -1,5 +1,5 @@
-/// @description Insert description here
-// You can write your code in this editor
+hp = 1;
+
 
 // used to randomly select a sprite for the astroids 
 sprite_index = choose(
@@ -25,3 +25,4 @@ rotate_direction = choose(rotation_speed, -rotation_speed);
 
 // spawns shade
 alarm[0] = room_speed;
+

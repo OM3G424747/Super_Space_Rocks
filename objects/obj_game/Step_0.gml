@@ -22,7 +22,20 @@ if(keyboard_check_pressed(vk_enter)){
 
 
 if (room == rm_game){
-	if (score >= 30000){
+	
+	counter +=1;
+
+	if (counter >= room_speed){
+	
+		if (time_multiplier <= 5){
+			time_multiplier -= 0.05;
+		}
+
+		counter = 0;
+	}
+	
+
+	if (score >= score_to_win){
 		room_goto(rm_win);
 		window_set_cursor(cr_arrow);
 	}
@@ -32,3 +45,7 @@ if (room == rm_game){
 		window_set_cursor(cr_arrow);
 	}
 }
+
+
+
+

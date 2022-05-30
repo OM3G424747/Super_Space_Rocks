@@ -4,7 +4,15 @@
 switch(room){
 	case rm_game:
 		draw_text(20,20, "SCORE: "+string(score));
-		draw_text(20,40, "LIVES: "+string(lives));
+		
+		// informs player max shards reached or current total
+		if (cube_shards < 100){
+			draw_text(20,40, "SHARDS: "+string(cube_shards));
+		} else {
+			draw_text(20,40, "SHARDS: 100 MAX REACHED!");
+		}
+		
+		draw_text(20,60, "LIVES: "+string(lives));
 		break;
 		
 	case rm_start:
@@ -22,12 +30,13 @@ switch(room){
 		
 		draw_text(
 			room_width/2, 300, 
-			@"Score 30,000 points to win!
+			@"Score 40,000 points to win!
 
 W or Space Bar: Thrusters
 Mouse: Aim / Steer
 Left Mouse Button Click: Shoot
 Left Mouse Button Hold: Charged Shot
+Death: Converts shards to score
 
 >> PRESS ENTER TO START <<
 "

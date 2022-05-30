@@ -4,7 +4,7 @@ if (room == rm_game){
 	audio_stop_sound(snd_menu);
 	
 	
-	repeat(8){
+	repeat(6){
 		var xx = choose(
 			// set's 1st 3rd of the room "left column"
 			irandom_range(0, room_width*0.3),

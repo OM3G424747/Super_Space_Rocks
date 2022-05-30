@@ -80,7 +80,6 @@ if(keyboard_check(ord("W")) or keyboard_check(vk_space)){
 		}
 	}
 	
-
 }
 
 
