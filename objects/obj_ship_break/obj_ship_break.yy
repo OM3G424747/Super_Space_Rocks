@@ -1,7 +1,7 @@
 {
   "spriteId": {
-    "name": "spr_good_astroid_lrg",
-    "path": "sprites/spr_good_astroid_lrg/spr_good_astroid_lrg.yy",
+    "name": "spr_ship_break",
+    "path": "sprites/spr_ship_break/spr_ship_break.yy",
   },
   "solid": false,
   "visible": true,
@@ -24,8 +24,6 @@
   "eventList": [
     {"isDnD":false,"eventNum":0,"eventType":0,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
     {"isDnD":false,"eventNum":0,"eventType":3,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":2,"collisionObjectId":null,"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
-    {"isDnD":false,"eventNum":0,"eventType":4,"collisionObjectId":{"name":"obj_spark","path":"objects/obj_spark/obj_spark.yy",},"resourceVersion":"1.0","name":"","tags":[],"resourceType":"GMEvent",},
   ],
   "properties": [],
   "overriddenProperties": [],
@@ -34,7 +32,7 @@
     "path": "folders/Objects.yy",
   },
   "resourceVersion": "1.0",
-  "name": "obj_good_astroid",
+  "name": "obj_ship_break",
   "tags": [],
   "resourceType": "GMObject",
 }

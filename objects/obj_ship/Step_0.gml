@@ -22,18 +22,35 @@ var seconds = 1;
 //image_angle -= 5;
 //}
 
+if(keyboard_check(ord("S")) or keyboard_check(vk_shift)){
+	
+	if (speed > 0){
+		
+		speed -= 0.10;
+		var dust = instance_create_layer(x, y, "Instances", obj_ship_break);
+		
+		var new_dir = irandom_range(obj_ship.direction - 15, obj_ship.direction + 15);
+		
+		dust.direction =  new_dir;
+		dust.speed = obj_ship.speed + 0.5;
+	
+	}
+	
+}
+
+
 // used to move the ship forward 
 if(keyboard_check(ord("W")) or keyboard_check(vk_space)){
 	
-	
+	// pulls get streams closer to jet at high speed
+	var away_from_ship = 5 - speed;
 	
 	// sets hub for thruster objects to rotate arround at the rear of the ship 7px away
-	var hub_x = x + lengthdir_x(6,image_angle-180);
-	var hub_y = y + lengthdir_y(6,image_angle-180);
+	var hub_x = x + lengthdir_x(away_from_ship,image_angle-180);
+	var hub_y = y + lengthdir_y(away_from_ship,image_angle-180);
 	
 	// creates hub instance
 	var hub = instance_create_layer(hub_x, hub_y, "Instances", obj_hub);
-	
 
 	// sets left and right thruster based on the location of the hub
 	var thrust_left_x = hub.x + lengthdir_x(2,image_angle-270);
@@ -54,18 +71,27 @@ if(keyboard_check(ord("W")) or keyboard_check(vk_space)){
 	prev_thruster_left = thrust_left;
 	prev_thruster_right = thrust_right;
 	
-	// changes direction and angle of thrustes to match those of the ship
-	thrust_left.direction = image_angle-180;
-	thrust_left.image_angle = image_angle-180;
-	thrust_right.direction = image_angle-180;
-	thrust_right.image_angle = image_angle-180;
+	// stores the force from the direction and angle of the ship combined
+	var force_turn = (direction-image_angle);
 	
+
+	
+	// changes direction and angle of thrustes to match those of the ship
+	thrust_left.image_angle = image_angle-180 ;
+	thrust_right.image_angle = image_angle-180 ;
+	
+	thrust_left.direction = thrust_left.image_angle;
+	thrust_right.direction = thrust_right.image_angle ;
+
 
 	motion_add(image_angle, 0.10);
 	
-	thrust_left.speed += obj_ship.speed;
-	thrust_right.speed += obj_ship.speed;
+	thrust_left.speed += (obj_ship.speed*0.8);
+	thrust_right.speed += (obj_ship.speed*0.8);
 	
+	// stretches out image based on ship speed
+	thrust_right.image_xscale = 0.6 + (obj_ship.speed/10)
+	thrust_left.image_xscale = 0.6 + (obj_ship.speed/10)
 	
 	// handles thuster sparks
 	repeat(2){

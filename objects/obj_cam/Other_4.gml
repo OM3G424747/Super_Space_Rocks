@@ -39,3 +39,9 @@ alarm[0] = 1;
 
 //GUI
 display_set_gui_size(global.cam_width*2, global.cam_height*2);
+
+// GB IDs
+gb_par_0 = layer_get_id("Paralax_0");
+gb_par_1 = layer_get_id("Paralax_1");
+gb_par_2 = layer_get_id("Paralax_2");
+gb_gra = layer_get_id("Gradient");

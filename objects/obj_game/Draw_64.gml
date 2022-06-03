@@ -23,16 +23,17 @@ switch(room){
 		var c = c_lime;
 		
 		draw_text_transformed_color(
-			room_width/2, 100, "SUPER SPACE ROCKS",
+			room_width/2, 75, "SUPER SPACE ROCKS",
 			3, 3, 0, c, c, c, c, 1
 			
 		);
 		
 		draw_text(
-			room_width/2, 200, 
+			room_width/2, 150, 
 			@"Score 50,000 points to win!
 
 W or Space Bar: Thrusters
+S or Shift: Air Breaks
 Mouse: Aim / Steer
 Left Mouse Button Click: Shoot
 Left Mouse Button Hold: Charged Shot
