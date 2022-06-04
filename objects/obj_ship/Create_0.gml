@@ -1,5 +1,7 @@
 counter = 0;
 
+thrust_counter = 0;
+
 prev_thruster_left = "NA";
 prev_thruster_right = "NA";
 

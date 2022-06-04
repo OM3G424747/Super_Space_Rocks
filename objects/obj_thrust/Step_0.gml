@@ -1,10 +1,15 @@
-image_alpha -= 0.07;
+image_alpha -= 0.03;
 
 
 if (image_alpha <= 0){
 	
-	instance_destroy();
-
+	counter -= 1 ;
+	
+	if (counter <= 0 ){
+			instance_destroy();
+	
+	}
+	
 }
 
 if(trail_point_obj != "NA" and instance_exists(trail_point_obj)){

@@ -26,6 +26,9 @@ if(keyboard_check(ord("S")) or keyboard_check(vk_shift)){
 	
 	if (speed > 0){
 		
+		
+		audio_play_sound(snd_thruster2,1,false);
+		
 		speed -= 0.10;
 		var dust = instance_create_layer(x, y, "Instances", obj_ship_break);
 		
@@ -42,78 +45,122 @@ if(keyboard_check(ord("S")) or keyboard_check(vk_shift)){
 // used to move the ship forward 
 if(keyboard_check(ord("W")) or keyboard_check(vk_space)){
 	
+	// moves ship forward in direction of nose
+	motion_add(image_angle, 0.10);
+	
+	
 	// pulls get streams closer to jet at high speed
-	var away_from_ship = 5 - speed;
+	var away_from_ship = 12;
 	
 	// sets hub for thruster objects to rotate arround at the rear of the ship 7px away
-	var hub_x = x + lengthdir_x(away_from_ship,image_angle-180);
-	var hub_y = y + lengthdir_y(away_from_ship,image_angle-180);
+	var hub_x = obj_ship.x + lengthdir_x(away_from_ship,image_angle-180);
+	var hub_y = obj_ship.y + lengthdir_y(away_from_ship,image_angle-180);
 	
 	// creates hub instance
 	var hub = instance_create_layer(hub_x, hub_y, "Instances", obj_hub);
+	hub.direction = direction;
+	hub.speed = speed;
 
 	// sets left and right thruster based on the location of the hub
 	var thrust_left_x = hub.x + lengthdir_x(2,image_angle-270);
 	var thrust_left_y = hub.y + lengthdir_y(2,image_angle-270);
+	
 	var thrust_right_x = hub.x + lengthdir_x(2,image_angle-90);
 	var thrust_right_y = hub.y + lengthdir_y(2,image_angle-90);
 	
-	// creates left and right thruster instance
-	var thrust_left = instance_create_layer(thrust_left_x, thrust_left_y, "Instances", obj_thrust);
-    var thrust_right = instance_create_layer(thrust_right_x, thrust_right_y, "Instances", obj_thrust);
 	
-	if (prev_thruster_left!= "NA" and prev_thruster_right != "NA"){
-		thrust_left.trail_point_obj = prev_thruster_left;
-		thrust_right.trail_point_obj = prev_thruster_right;
 	
-	}
+	if(thrust_counter == 0){
 	
-	prev_thruster_left = thrust_left;
-	prev_thruster_right = thrust_right;
+		// creates left and right thruster instance
+		var thrust_left = instance_create_layer(thrust_left_x, thrust_left_y, "Instances", obj_thrust);
+	    var thrust_right = instance_create_layer(thrust_right_x, thrust_right_y, "Instances", obj_thrust);
+		thrust_counter += 1;
 	
-	// stores the force from the direction and angle of the ship combined
-	var force_turn = (direction-image_angle);
 	
-
+		thrust_left.direction = image_angle-180;
+		thrust_left.speed = speed;
+		thrust_right.direction = image_angle-180;
+		thrust_right.speed = speed;
 	
-	// changes direction and angle of thrustes to match those of the ship
-	thrust_left.image_angle = image_angle-180 ;
-	thrust_right.image_angle = image_angle-180 ;
-	
-	thrust_left.direction = thrust_left.image_angle;
-	thrust_right.direction = thrust_right.image_angle ;
-
-
-	motion_add(image_angle, 0.10);
-	
-	thrust_left.speed += (obj_ship.speed*0.8);
-	thrust_right.speed += (obj_ship.speed*0.8);
-	
-	// stretches out image based on ship speed
-	thrust_right.image_xscale = 0.6 + (obj_ship.speed/10)
-	thrust_left.image_xscale = 0.6 + (obj_ship.speed/10)
-	
-	// handles thuster sparks
-	repeat(2){
-		var spark_spray = choose(irandom_range(355, 359), irandom_range(0,5));
-		var select_jet = choose(0,1);
-	
-		if (select_jet == 0){
-		
-			// selects left jet for spark
-			var spark = instance_create_layer(thrust_left.x, thrust_left.y, "Instances", obj_spark);
-		
-			spark.direction = thrust_left.direction - spark_spray;
-	
-		} else {
-		
-			// selects right jet for spark
-			var spark = instance_create_layer(thrust_right.x, thrust_right.y, "Instances", obj_spark);
-		
-			spark.direction = thrust_right.direction - spark_spray;
+		if (prev_thruster_left!= "NA" and prev_thruster_right != "NA"){
+			thrust_left.trail_point_obj = prev_thruster_left;
+			thrust_right.trail_point_obj = prev_thruster_right;
 	
 		}
+	
+		prev_thruster_left = thrust_left;
+		prev_thruster_right = thrust_right;
+	
+		// stores the force from the direction and angle of the ship combined
+		//var force_turn = (direction-image_angle);
+	
+
+		// changes direction and angle of thrustes to match those of the ship
+		thrust_left.image_angle = image_angle-180 ;
+		thrust_right.image_angle = image_angle-180 ;
+	
+	
+		//thrust_left.direction = thrust_left.image_angle;
+		//thrust_right.direction = thrust_right.image_angle ;
+
+		// sets thrusters to match side ways motion of ship
+		with(thrust_left){
+			motion_add(obj_ship.direction, obj_ship.speed);
+		
+		
+		}
+	
+		// sets thrusters sparks to match side ways motion of ship
+		with(thrust_right){
+			motion_add(obj_ship.direction, obj_ship.speed);
+	
+		}
+	
+		//thrust_left.speed += (obj_ship.speed*0.8);
+		//thrust_right.speed += (obj_ship.speed*0.8);
+	
+		// stretches out image based on ship speed
+		thrust_right.image_xscale = 0.6 + (obj_ship.speed/10)
+		thrust_left.image_xscale = 0.6 + (obj_ship.speed/10)
+	} else if (thrust_counter >= 2) {
+		
+		thrust_counter = 0;
+	
+	} else {
+		thrust_counter += 1;
+	
 	}
+	
+	// handles thuster sparks
+	
+	var spark_spray = choose(irandom_range(355, 359), irandom_range(0,5));
+	var select_jet = choose(0,1);
+	
+	if (select_jet == 0){
+		
+		// selects left jet for spark
+		var spark = instance_create_layer(thrust_left_x, thrust_left_y, "Instances", obj_spark);
+		
+		spark.direction = (image_angle-180) - spark_spray;
+			
+	
+	} else {
+		
+		// selects right jet for spark
+		var spark = instance_create_layer(thrust_right_x, thrust_right_y, "Instances", obj_spark);
+		
+		spark.direction = (image_angle-180) - spark_spray;
+			
+	
+	}
+		
+	// sets sparks to match side ways motion of ship
+	with(spark){
+		motion_add(obj_ship.direction, obj_ship.speed);		
+	}
+	
+
 	
 }
 
