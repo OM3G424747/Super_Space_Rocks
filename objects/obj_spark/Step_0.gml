@@ -1,5 +1,6 @@
 image_alpha -= 0.01;
 
+speed -= irandom_range(0.3, 0.8);
 
 if (image_alpha <= 0){
 	

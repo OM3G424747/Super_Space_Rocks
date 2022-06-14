@@ -15,7 +15,7 @@ if (hp <= 0){
 	instance_destroy();
 	var boom_rock = choose(snd_boom1, snd_boom2, snd_boom3);
 	
-	audio_play_sound(boom_rock, 2, false);
+	on_cam_audio(x, y, boom_rock)
 	
 	if(sprite_index == spr_good_astroid_lrg){
 		

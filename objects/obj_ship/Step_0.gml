@@ -237,60 +237,39 @@ if mouse_check_button(mb_left){
 // checks if left mouse button is clicked
 else if mouse_check_button_released(mb_left){
 	
+	var ship_dir = image_angle;
+	var basic_bullet_speed = 14;
 
 	// full charge
 	if counter >= room_speed * seconds {
 	
 	
-		audio_play_sound(snd_zap, 5, false);
-		audio_play_sound(snd_zap, 8, false);
-		audio_play_sound(snd_zap2, 8, false);
-		audio_play_sound(snd_zap2, 8, false);
-		var inst = instance_create_layer(x,y, "Instances", obj_bullet);
-	
-		inst.charge = 8;
-		inst.speed += 2;
-	
-		inst.image_index = spr_bullet_lrg
-		
-		inst.image_xscale +=2;
-		inst.image_yscale +=2;
-	
-		inst.direction = image_angle;
-		inst.image_angle = image_angle;
+		// full change bullet  
+		// level 3 == 8;
+		// hit 8 rocks before ending
+		// speed buff of 1 unit
+		create_bullet(ship_dir, basic_bullet_speed + 2, 8, faction);
    
-	   counter = 0;
+	    counter = 0;
 
 	// half charge
 	} else if (counter >= room_speed * (seconds*0.2)){
 	
-		audio_play_sound(snd_zap, 8, false);
-		audio_play_sound(snd_zap, 8, false);
-		var inst = instance_create_layer(x,y, "Instances", obj_bullet);
-		
-		inst.charge = 4;
-		inst.speed += 1;
-	
-		inst.image_index = spr_bullet_lrg
-	
-		inst.image_xscale +=1;
-		inst.image_yscale +=1;
-	
-		inst.direction = image_angle;
-		inst.image_angle = image_angle;
+
+		// full change bullet  
+		// level 2 == 4;
+		// hit 4 rocks before ending
+		// speed buff of 1 unit
+		create_bullet(ship_dir, basic_bullet_speed + 1, 4, faction);
    
 		counter = 0;
 
 
 	} else if (counter < room_speed * (seconds*0.5)){
 
-		audio_play_sound(snd_zap, 8, false);
-		var inst = instance_create_layer(x,y, "Instances", obj_bullet);
-		
-
+		create_bullet(ship_dir, basic_bullet_speed, 1, faction);
 	
-		inst.direction = image_angle;
-		inst.image_angle = image_angle;
+		audio_play_sound(snd_zap, 8, false);
    
 		counter = 0;
 

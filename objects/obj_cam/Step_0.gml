@@ -11,14 +11,14 @@ if(instance_exists(target)){
 camera_set_view_pos(view_camera[0], global.cam_x, global.cam_y);
 
 
-layer_x(gb_par_0, global.cam_x*0.98);
-layer_y(gb_par_0, global.cam_y*0.98);
+layer_x(gb_par_0, global.cam_x*0.92);
+layer_y(gb_par_0, global.cam_y*0.92);
 
-layer_x(gb_par_1, global.cam_x*0.92);
-layer_y(gb_par_1, global.cam_y*0.92);
+layer_x(gb_par_1, global.cam_x*0.85);
+layer_y(gb_par_1, global.cam_y*0.85);
 
-layer_x(gb_par_2, global.cam_x*0.9);
-layer_y(gb_par_2, global.cam_y*0.9);
+layer_x(gb_par_2, global.cam_x*0.8);
+layer_y(gb_par_2, global.cam_y*0.8);
 
-layer_x(gb_gra, global.cam_x*0.88);
-layer_y(gb_gra, global.cam_y*0.88);
+layer_x(gb_gra, global.cam_x*0.92);
+layer_y(gb_gra, global.cam_y*0.92);

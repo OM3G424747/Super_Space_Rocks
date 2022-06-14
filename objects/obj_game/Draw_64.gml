@@ -47,6 +47,30 @@ Death: Converts shards to score
 		
 		break;
 		
+	
+	case rm_life:
+	
+		draw_set_halign(fa_center);
+	
+		var c = c_white;
+		
+		var lives_left = "Ships remaining = " + string(lives)
+		
+		draw_text_transformed_color(
+			room_width/2, 150, lives_left,
+			3, 3, 0, c, c, c, c, 1
+			
+		);
+		
+
+		
+		draw_set_halign(fa_left);
+	
+	
+		break;
+		
+		
+		
 	case rm_win:
 	
 		draw_set_halign(fa_center);

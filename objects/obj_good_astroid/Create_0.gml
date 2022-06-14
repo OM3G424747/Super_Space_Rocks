@@ -1,3 +1,6 @@
+// applied "none" faction properties to ship
+event_inherited();
+
 hp = 1;
 
 // used to randomly select a sprite for the astroids 

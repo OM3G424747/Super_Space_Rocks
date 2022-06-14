@@ -6,6 +6,8 @@ if (image_alpha >= 0 ){
 	
 	image_alpha -= 0.05;
 
+	image_angle += 180;
+
 }
 
 
@@ -37,7 +39,7 @@ repeat(20){
 
 
 
-
+// spawns player at end of wave
 if (image_alpha <= 0){
 	
 	counter += 1

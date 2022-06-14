@@ -28,7 +28,7 @@ if (room == rm_game){
 	if (counter >= room_speed){
 	
 		if (time_multiplier <= 5){
-			time_multiplier -= 0.05;
+			time_multiplier -= 0.04;
 		}
 
 		counter = 0;
@@ -44,6 +44,21 @@ if (room == rm_game){
 		room_goto(rm_gameover);
 		window_set_cursor(cr_arrow);
 	}
+
+// shows screen with remaining lives
+} else if (room == rm_life){
+
+	counter += 1;
+	if (counter == room_speed){
+		
+		alarm[3] = room_speed;
+		counter = 0;
+	
+	}
+	
+	
+
+
 }
 
 

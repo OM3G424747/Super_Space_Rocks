@@ -1,13 +1,16 @@
 
 if (room == rm_game){
 	
-	spawn_off_cam(obj_astroid, 10);
+	alarm[4] = room_speed;
 	
 	audio_stop_sound(snd_menu);
 	
 
 	// triggers alarm to spawn more asteroids
 	alarm[0] = 60;
+	
+	// triggers alarm to spawn enemy ships
+	alarm[2] = 60;
 
 
 } else if (room == rm_gameover){

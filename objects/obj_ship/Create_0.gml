@@ -1,3 +1,7 @@
+
+// applied good faction properties to ship
+event_inherited();
+
 counter = 0;
 
 thrust_counter = 0;
@@ -11,3 +15,6 @@ repeat(20){
 	instance_create_layer(x,y, "Instances", obj_ship_dust);
 	
 }
+
+// sets ship HP
+hp = 1;
